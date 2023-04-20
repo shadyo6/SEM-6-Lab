@@ -1,33 +1,38 @@
-#include "at89c51ed2.h"
+//To interface 16x2 LCD with 8051 microcontroller
+#include"at89C51ed2.h"
+#include<intrins.h>
 
-void T1M1Delay();
+//Function Prototypes
+void lcd_init(void);
+void lcd_comm(void);
+void lcd_data(void);
 
-void main()
+//Global variables
+unsigned char arr1[16]={"GITCSE"};
+unsigned char arr2[16]={"MICROCONTROLLER"};
+unsigned char temp1,temp2;
+
+void main(void)
 {
-	while(1)
+	unsigned char i;
+	AUXR=0x10;		//To access eternal RAM
+	lcd_init();
+
+	temp1 = 0x80;	//Command to display line 1st position
+	lcd_comm();
+
+	for(i=0;i<6;i++)
 	{
-	 	P2 = 0x00;
-		T1M1Delay();
-		P2 = 0x10;
-		T1M1Delay();
-		P2 = 0x20;
-		T1M1Delay();
-		P2 = 0x30;
-		T1M1Delay();
+		temp2 = arr1[i];
+		lcd_data();
 	}
-}
 
-void T1M1Delay()
-{
-	unsigned int i;
-	for(i=0; i<5; i++)
+	temp1 = 0xC0;	//Command to display line 1st position
+	lcd_comm();
+
+	for(i=0;i<15;i++)
 	{
-		TMOD = 0x10;	//Select timer1 in mode1
-		TH1=0x4B; 		//Load TH1 with 0x4B
-		TL1=0xFE;	    //Load TL1 with 0xFE
-		TR1=1;
-		while(TF1 == 0);//Monitor overflow flag
-		TR1=0;			//Stop the timer
-		TF1=0;			//Clear overflow flag
+		temp2 = arr2[i];
+		lcd_data();
 	}
 }
