@@ -15,7 +15,9 @@ void setup()
   buttonState1=false;
   buttonState2=false;
   pinMode(pushButton1, INPUT);
+  pinMode(pushButton2, INPUT);
   pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
 }
 
 void loop()
