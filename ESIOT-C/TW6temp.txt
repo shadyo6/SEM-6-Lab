@@ -1,18 +1,19 @@
-int relay_pin = 8;
+const int relayPin = 8;
 
-void setup() {
-  // put your setup code here, to run once:
-  pinMode(relay_pin, OUTPUT);
+void setup() 
+{
   Serial.begin(9600);
-  digitalWrite(relay_pin, HIGH);
+  pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, HIGH);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite(relay_pin, LOW);
+void loop() 
+{
+  digitalWrite(relayPin, LOW);
   Serial.println("Relay OFF");
   delay(1000);
-  digitalWrite(relay_pin, HIGH);
+
+  digitalWrite(relayPin, HIGH);
   Serial.println("Relay ON");
   delay(1000);
 }
