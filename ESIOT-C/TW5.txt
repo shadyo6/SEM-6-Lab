@@ -1,10 +1,10 @@
 //TW5 
 //interface pushButton1 and ledPin1 for arduino UNO
 
-constexpr uint8_t ledPin1 = A5;
-constexpr uint8_t ledPin2 = A4;
-constexpr uint8_t pushButton1 = 13;
-constexpr uint8_t pushButton2 = 12;
+const int ledPin1 = A5;
+const int ledPin2 = A4;
+const int pushButton1 = 13;
+const int pushButton2 = 12;
 
 bool buttonState1;
 bool buttonState2;
