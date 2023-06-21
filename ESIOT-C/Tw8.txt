@@ -1,3 +1,6 @@
+//INTERFACE LDR SENSOR
+//CONNECT RM3 TO RM20
+
 const int lightPin = 5;
 
 void setup() 
