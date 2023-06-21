@@ -1,4 +1,5 @@
 //Interface DHT 11 sensor
+//CONNECT RM2 – RM19
 #include <dht.h>
 dht DHT;
 const int DHT11_PIN 4
@@ -11,9 +12,21 @@ void setup()
 void loop() 
 {
   int chk = DHT.read11(DHT11_PIN);
-  Serial.print("Temperature = ");
-  Serial.println(DHT.temperature);
-  Serial.print("Humidity = ");
-  Serial.println(DHT.humidity);
-  delay(2000);
+
+  if (chk == DHTLIB_OK) // If data is valid and available
+  {      
+    Serial.print("Temperature: ");
+    Serial.print(DHT.temperature);
+    Serial.print(" °C\t");
+
+    Serial.print("Humidity: ");
+    Serial.print(DHT.humidity);
+    Serial.println(" %");
+  } 
+  else
+  {
+    Serial.println("Error reading from DHT11 sensor.");
+  }
+
+  delay(2000);    // Delay for 2 seconds before the next reading
 }
