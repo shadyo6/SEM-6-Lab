@@ -1,0 +1,14 @@
+//Connection Details: Connect RM3 – RM20.
+int light_pin = 5;
+void setup(){
+    pinMode(light_pin, INPUT);
+    Serial.begin(9600);
+}
+void loop(){
+    int light_data = digitalReal (light_pin);
+    if(light_data)
+        Serial.println(“Light Not Detected!”);
+    else
+        Serial.println(“Light Detected!”);
+    delay(1000);
+}

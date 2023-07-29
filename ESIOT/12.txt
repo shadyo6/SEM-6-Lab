@@ -1,0 +1,13 @@
+//Connection Details: Connect RM17 To RM9
+int relay_pin = 8;
+void setup() {
+    pinMode(relay_pin, OUTPUT);
+    Serial.begin(9600);
+    digitalWrite(relay_pin, HIGH);
+}
+void loop() {
+    digitalWrite(relay_pin, LOW);
+    delay(1000);
+    digitalWrite(relay_pin, HIGH);
+    delay(1000);
+}

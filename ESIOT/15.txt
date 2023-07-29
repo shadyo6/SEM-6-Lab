@@ -1,0 +1,23 @@
+Connection Details: Connect RM2 – RM19 & Connect RM17 To RM9
+// INCLUDE DHT LIBRARY (* Sketch → Include Library→ add ZIP library)
+#include <dht.h>
+dht DHT;
+#define DHT11_PIN 4
+int relay_pin = 8;
+void setup() {
+    pinMode(relay_pin, OUTPUT);
+    Serial.begin(9600);
+    digitalWrite(relay_pin, HIGH);
+}
+void loop() {
+    int chk = DHT.read11(DHT11_PIN);
+    Serial.print(“Temperature = ”);
+    Serial.println(DHT.temperature);
+    if(DHT.temperature){
+        digitalWrite(relay_pin, HIGH);
+    }
+    else{
+        digitalWrite(relay_pin, LOW);
+    }
+    delay(2000);
+}

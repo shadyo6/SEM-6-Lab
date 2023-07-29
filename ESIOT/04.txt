@@ -1,0 +1,23 @@
+//Connection Details: Port 2 to CN11 of Microcontroller Evaluation Board.
+#include "at89c51ed2.h"
+void T1M2delay(void);
+void main(void) {
+    while(1) {
+        P2=0x00;
+        T1M2delay()
+        P2=0x10;
+        T1M2delay();
+        P2=0x20;
+        T1M2delay();
+        P2=0x30;
+        T1M2delay();
+    }
+}
+void T1M2Delay(void) {
+    TMOD=0x20;
+    TH1=E9;
+    TR1=1;
+    while (TF1==0);
+    TR1=0;
+    TF1=0;
+}
