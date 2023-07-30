@@ -1,20 +1,20 @@
+# Develop a python program for Raspberry Pi to turn “ON” and “OFF” the buzzer.
 # Connect RM9 to RM17
 
 import time
-import RPi.GPIO as gpio
+import RPi.GPIO as GPIO
 
-gpio.setwarnings(False)
-gpio.setmode(gpio.BOARD)
-gpio.setup(38, g)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(38, g)
 try:
     while(1):
-        gpio.output(38,0)
+        GPIO.output(38,0)
         print("Buzzer OFF")
         time.sleep(1)
-        gpio.output(38,1)
+        GPIO.output(38,1)
         print("Buzzer ON")
         time.sleep(1)
-        #gpio.cleanup()
 except KeyboardInterrupt:
-        gpio.cleanup()
+        GPIO.cleanup()
         exit

@@ -1,23 +1,33 @@
+/*
+Develop an Embedded ‘C’ program to interface the sensor DHT11 to Arduino SBC and display the data acquired from sensors on serial monitor. Turn ON the relay when temperature is greater than 22 degree centigrade.
 Connection Details: Connect RM2 – RM19 & Connect RM17 To RM9
-// INCLUDE DHT LIBRARY (* Sketch → Include Library→ add ZIP library)
+*/
+
 #include <dht.h>
 dht DHT;
-#define DHT11_PIN 4
-int relay_pin = 8;
-void setup() {
-    pinMode(relay_pin, OUTPUT);
+const int dht11Pin = 4;
+const int relayPin = 8;
+
+void setup() 
+{
     Serial.begin(9600);
-    digitalWrite(relay_pin, HIGH);
+    pinMode(relayPin, OUTPUT);
+    digitalWrite(relayPin, HIGH);
 }
-void loop() {
-    int chk = DHT.read11(DHT11_PIN);
+
+void loop() 
+{
+    int chk = DHT.read11(dht11Pin);
     Serial.print(“Temperature = ”);
     Serial.println(DHT.temperature);
-    if(DHT.temperature){
-        digitalWrite(relay_pin, HIGH);
+
+    if(DHT.temperature)
+    {
+        digitalWrite(relayPin, HIGH);
     }
-    else{
-        digitalWrite(relay_pin, LOW);
+    else
+    {
+        digitalWrite(relayPin, LOW);
     }
-    delay(2000);
+    delay(1000);
 }

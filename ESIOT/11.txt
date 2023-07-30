@@ -1,12 +1,19 @@
-//Connection Details: Connect RM2 – RM19.
-// INCLUDE DHT LIBRARY (* Sketch → Include Library → add ZIP library)
+/*
+Develop an Embedded ‘C’ program to interface the sensor DHT11 to Arduino SBC and display the data acquired from sensors on serial monitor.
+Connection Details: Connect RM2 – RM19.
+*/
+
 #include <dht.h>
 dht DHT;
 #define DHT11_PIN 4
-void setup() {
+
+void setup() 
+{
     Serial.begin(9600);
 }
-void loop() {
+
+void loop() 
+{
     int chk = DHT.read11(DHT11_PIN);
     Serial.print(“Temperature = ”);
     Serial.println(DHT.temperature);

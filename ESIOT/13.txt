@@ -1,14 +1,24 @@
-//Connection Details: Connect RM3 – RM20.
-int light_pin = 5;
-void setup(){
-    pinMode(light_pin, INPUT);
+/*
+Develop an Embedded ‘C’ program to interface the sensor LDR to Arduino SBC and display the data acquired from sensor on serial monitor.
+Connection Details: Connect RM3 – RM20.
+*/
+
+int lightPin = 5;
+
+void setup()
+{
     Serial.begin(9600);
+    pinMode(lightPin, INPUT);
 }
-void loop(){
-    int light_data = digitalReal (light_pin);
+
+void loop()
+{
+    int light_data = digitalReal (lightPin);
+
     if(light_data)
         Serial.println(“Light Not Detected!”);
     else
         Serial.println(“Light Detected!”);
+
     delay(1000);
 }

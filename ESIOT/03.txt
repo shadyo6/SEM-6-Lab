@@ -1,4 +1,9 @@
-//Connection Details: Port 2 to CN11 of Microcontroller Evaluation Board.
+/*
+Develop an 8051 ‘C’ program to implement MOD-4 counter on LEDs connected to Port 2 using Hardware delay.
+Use Timer1 in Mode 1 to generate a delay 50 ms.
+Connection Details: Port 2 to CN11 of Microcontroller Evaluation Board.
+*/
+
 #include "at89c51ed2.h"
 void T1M1delay(void);
 void main(void) {
@@ -14,11 +19,11 @@ void main(void) {
     }
 }
 void T1M1Delay(void) {
-    TMOD=0X10; //TIMER 1 MODE 1(16-BIT MODE)
-    TL1= 0XFE; // LOAD TL1 WITH COUNT 0FE
-    TH1=0X4B; // LOAD TH1 WITH COUNT 4B
-    TR1=1; // START TIME
-    while(TF1==0); //WAIT FOR TF1 TO ROLL OVER
-    TR1=0; //TURN OFF T1
-    TF1=0; // CLEAR TF1
+    TMOD=0X10;      // TIMER 1 MODE 1 (16-BIT MODE)
+    TH1=0X4B;       // LOAD TH1 WITH COUNT 0x4B
+    TL1=0XFE;       // LOAD TL1 WITH COUNT 0xFE
+    TR1=1;          // START TIME
+    while(TF1==0);  // WAIT FOR TF1 TO ROLL OVER
+    TR1=0;          // TURN OFF T1
+    TF1=0;          // CLEAR TF1
 }

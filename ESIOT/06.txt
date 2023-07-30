@@ -1,30 +1,41 @@
-//Connection Details: Port 0 to CN15.
+/*
+Develop an 8051 ‘C’ program to generate the following waveforms using DAC 0800 interface
+i) Rectangular wave with 70% duty cycle. Assume T=100ms
+ii) Positive Ramp
+*/
+    
 //Code For Rectangular wave
 #include "at89c51ed2.h"
 void delay(unsigned int);
-void main () {
-    while(1) {
+
+void main ()
+{
+    while(1)
+    {
         P0 = 0x00; 
-        delay(100);
+        delay(30);          // 30 ms off time
         P0 = 0xff;
-        delay(200);
+        delay(70);          // 70 ms on time
     }
 }
+
 // function to generate delay
-void delay(unsigned int itime) {
+void delay(unsigned int itime)
+{
     unsigned int i,j;
     for(i=0;i<itime;i++)
-        for(j=0;j<1275;j++);
+    for(j=0;j<1275;j++);
 }
+
 //Code For Positive ramp wave
 #include "at89c51ed2.h"
 unsigned char count;
-void main () {
-    while(1) {
-        for(count=0;count<=0xff;count++) { 
-            P0=count;
-    }
-        for(count=0xff; count>0;count--) {
+void main ()
+{
+    while(1)
+    {
+        for(count=0; count!=0xff; count++)
+        {
             P0=count;
         }
     }

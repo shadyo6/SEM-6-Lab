@@ -1,8 +1,17 @@
-//Connection Details: Port 2 to CN11 of Microcontroller Evaluation Board.
+/*
+Develop an 8051 ‘C’ program to implement MOD-4 (UP/ DOWN) counter on LEDs connected to Port 2.
+Include 0.5 second delay between each count.
+Generate delay using for loop.
+Connection Details: Port 2 to CN11.
+*/
+
 #include "at89c51ed2.h"
 void delay(unsigned int);
-void main(void) {
-    while(1) {
+
+void main(void) 
+{
+    while(1)
+    {
         P2=0x00;
         delay(500);
         P2=0x10;
@@ -14,8 +23,9 @@ void main(void) {
     }
 }
 // DELAY GENERATION USING FOR LOOP
-void delay(unsigned int itime) {
-unsigned int i,j;
+void delay(unsigned int itime)
+{
+    unsigned int i,j;
     for(i=0;i<itime;i++)
-        for(j=0;j<1275;j++);
+    for(j=0;j<1275;j++);
 }

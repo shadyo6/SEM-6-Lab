@@ -1,17 +1,26 @@
-//Connection Details: Port 0 to CN15.
+/*
+Develop an 8051 ‘C’ program to generate the following waveforms using DAC 0800 interface
+    i) Square
+    ii) Triangular
+*/
+
 //Code For Square wave
 #include "at89c51ed2.h"
 void delay(unsigned int);
-void main () {
-    while(1) {
+void main ()
+{
+    while(1)
+    {
         P0 = 0x00; 
         delay(200);
         P0 = 0xff;
         delay(200);
     }
 }
+
 // function to generate delay
-void delay(unsigned int itime) {
+void delay(unsigned int itime)
+{
     unsigned int i,j;
     for(i=0;i<itime;i++)
         for(j=0;j<1275;j++);
@@ -20,12 +29,16 @@ void delay(unsigned int itime) {
 //Code For Triangular wave
 #include "at89c51ed2.h"
 unsigned char count;
-void main () {
-    while(1) {
-        for(count=0;count!=0xff;count++) { 
+void main ()
+{
+    while(1)
+    {
+        for(count=0; count!=0xff; count++)
+        {
             P0=count;
         }
-        for(count=0xff; count>0;count--) {
+        for(count=0xff; count>0; count--)
+        {
             P0=count;
         }
     }

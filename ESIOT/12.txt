@@ -1,13 +1,20 @@
-//Connection Details: Connect RM17 To RM9
-int relay_pin = 8;
-void setup() {
-    pinMode(relay_pin, OUTPUT);
+/*
+Develop an Embedded ‘C’ program to control the relay through Arduino UNO.
+Connection Details: Connect RM17 To RM9
+*/
+
+int relayPin = 8;
+void setup() 
+{
     Serial.begin(9600);
-    digitalWrite(relay_pin, HIGH);
+    pinMode(relayPin, OUTPUT);
+    digitalWrite(relayPin, HIGH);
 }
-void loop() {
-    digitalWrite(relay_pin, LOW);
+
+void loop() 
+{
+    digitalWrite(relayPin, LOW);
     delay(1000);
-    digitalWrite(relay_pin, HIGH);
+    digitalWrite(relayPin, HIGH);
     delay(1000);
 }
