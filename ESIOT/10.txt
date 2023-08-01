@@ -3,10 +3,10 @@ Develop an Embedded ‘C’ program to blink the LEDs connected to Arduino SBC u
 Connection Details: Connect CN9 To CN4
 */
 
-const ledPin1 = A5;
-const ledPin2 = A4;
-const ledPin3 = A3;
-const ledPin4 = A2;
+const int ledPin1 = A5;
+const int ledPin2 = A4;
+const int ledPin3 = A3;
+const int ledPin4 = A2;
 
 const int buttonPin1 = 13;
 const int buttonPin2 = 12;
@@ -75,10 +75,17 @@ void loop()
     {
         digitalWrite(ledPin4, HIGH);
     }
-    
-    Serial.println(buttonState1);
-    Serial.println(buttonState2);
-    Serial.println(buttonState3);
+
+    Serial.print("Button1: ");
+    Serial.print(buttonState1);
+    Serial.print(" ; ");
+    Serial.print("Button2: ");
+    Serial.print(buttonState2);
+    Serial.print(" ; ");
+    Serial.print("Button3: ");
+    Serial.print(buttonState3);
+    Serial.print(" ; ");
+    Serial.print("Button4: ");
     Serial.println(buttonState4);
     delay(10);
 }

@@ -1,6 +1,10 @@
 /*
 Develop an 8051 ‘C’ program to implement MOD-4 counter on LEDs connected to Port 2 using Hardware delay.
-Use Timer1 in Mode 2 to generate a delay 25us.
+Use Timer1 in Mode 2 to generate a delay 250us.
+
+To generate 250ms use i<1000 in for loop
+To generate 500ms use i<2000 in for loop
+
 Connection Details: Port 2 to CN11.
 */
 
@@ -12,7 +16,7 @@ void main(void)
     while(1)
     {
         P2=0x00;
-        T1M2delay()
+        T1M2delay();
         P2=0x10;
         T1M2delay();
         P2=0x20;
@@ -24,10 +28,15 @@ void main(void)
 
 void T1M2Delay(void)
 {
+    unsigned int i;
     TMOD=0x20;
-    TH1=E9;
-    TR1=1;
-    while (TF1==0);
-    TR1=0;
-    TF1=0;
+    TH1=0x1A;
+    for(i=0;i<1000;i++)
+    { 
+	TR1=1;
+	while (TF1==0);
+	TR1=0;
+	TF1=0;
+    }
+    
 }

@@ -13,9 +13,9 @@ void setup()
 
 void loop()
 {
-    int light_data = digitalReal (lightPin);
+    int lightData = digitalRead(lightPin);
 
-    if(light_data)
+    if(lightData)
         Serial.println(“Light Not Detected!”);
     else
         Serial.println(“Light Detected!”);

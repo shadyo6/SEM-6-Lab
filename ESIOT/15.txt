@@ -21,7 +21,7 @@ void loop()
     Serial.print(“Temperature = ”);
     Serial.println(DHT.temperature);
 
-    if(DHT.temperature)
+    if(DHT.temperature > 22)
     {
         digitalWrite(relayPin, HIGH);
     }
