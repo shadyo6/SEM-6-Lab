@@ -25,6 +25,7 @@ def BestFirstSearch():
     global State
     global Closed
     i=1
+    
     while (len(OPEN) != 0) and (State != SUCCESS):
         print("\n<<<<<<<<<<---({})--->>>>>>>>>>\n".format(i))
         N= OPEN[0]

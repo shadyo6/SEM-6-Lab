@@ -8,11 +8,14 @@ Connection Details: Port 2 to CN6.
 
 #include "at89c51ed2.h"
 #include<intrins.h>
+//#include "LCD_routine.h"
+
 void lcd_init(void);
 void lcd_comm(void);
 void lcd_data(void);
-unsigned char xdata arr[4] = {"CSE"};      // 4 spaces including null character
-unsigned char xdata arr1[7] = {"BRANCH"};  // 7 spaces including null character
+
+unsigned char arr[4] = {"CSE"};      // 4 spaces including null character
+unsigned char arr1[7] = {"BRANCH"};  // 7 spaces including null character
 unsigned char temp1 = 0x00;
 unsigned char temp2;
 unsigned int i = 0;
