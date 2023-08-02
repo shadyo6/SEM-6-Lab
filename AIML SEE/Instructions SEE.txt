@@ -1,0 +1,10 @@
+Important instructions for ML Practical Exam
+
+1. Write up includes source code of 1 term-work (chosen from the chit) and the sample input with necessary input graph and the output
+2. Split up of the marks is as below:
+A. Initial write up .....10M
+B. Conduction and results ..... 20M
+C. Written viva ....... 10M
+D. Oral viva voce .... 10M
+
+Note: Change of experiment leads to reduction in write up marks to 0 and the change is allowed only once

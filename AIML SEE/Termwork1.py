@@ -4,8 +4,6 @@
 
 from collections import defaultdict
 
-graph = defaultdict(list)
-
 
 def addEdge(u, v):
     graph[u].append(v)
@@ -25,17 +23,20 @@ def dfs(start, goal, depth):
 
 def dfid(start, goal, maxDepth):
     print("Start node: ", start, "Goal node: ", goal)
+
     for i in range(maxDepth):
         print("\nDFID at level : ", i + 1)
         print("Path Taken : ", end=' ')
         isPathFound = dfs(start, goal, i)
+
     if isPathFound:
         print("\nGoal node found!")
         return
     else:
         print("\nGoal node not found!")
 
-goal = defaultdict(list)
+graph = goal = defaultdict(list)
+
 addEdge('A', 'B')
 addEdge('A', 'C')
 addEdge('A', 'D')
@@ -47,4 +48,5 @@ addEdge('D', 'G')
 addEdge('D', 'H')
 addEdge('G', 'K')
 addEdge('G', 'L')
+
 dfid('A', 'L', 4)

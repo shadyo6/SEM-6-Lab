@@ -1,13 +1,3 @@
-SuccList ={ 'S':[['A',3],['B',6],['C',5]], 'A':[['E',8],['D',9]],'B':[['G',14],['F',12]], 'C':[['H',7]], 'H':[['J',6],['I',5]],'I': [['M',2],['L',10],['K',1]]} #Graph(Tree) List
-
-Start= input("Enter Source node >> ").upper()
-Goal= input('Enter Goal node >> ').upper()
-Closed = list()
-SUCCESS = True
-FAILURE = False
-State = FAILURE
-
-
 def GOALTEST(N):
     if N == Goal:
         return True
@@ -27,7 +17,8 @@ def APPEND(L1,L2):
  
 def SORT(L):
     L.sort(key = lambda x: x[1]) 
-    return L 
+    return L
+    
 def BestFirstSearch():
     OPEN=[[Start,5]]
     CLOSED=list()
@@ -39,6 +30,7 @@ def BestFirstSearch():
         N= OPEN[0]
         print("N=",N)
         del OPEN[0] #delete the node we picked
+        
         if GOALTEST(N[0])==True:
             State = SUCCESS
             CLOSED = APPEND(CLOSED,[N])
@@ -61,5 +53,21 @@ def BestFirstSearch():
             Closed=CLOSED
             i+=1
     return State
+    
+#Graph(Tree) List
+SuccList ={ 'S':[['A',3],['B',6],['C',5]],
+            'A':[['E',8],['D',9]],
+            'B':[['F',12],['G',14]],
+            'C':[['H',7]],
+            'H':[['J',6],['I',5]],
+            'I': [['M',2],['L',10],['K',1]]}
+
+Start= input("Enter Source node >> ").upper()
+Goal= input('Enter Goal node >> ').upper()
+Closed = list()
+SUCCESS = True
+FAILURE = False
+State = FAILURE
+
 result=BestFirstSearch()
 print("Best First Search Path >>>> {} <<<{}>>>".format(Closed, result))

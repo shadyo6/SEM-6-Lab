@@ -1,12 +1,14 @@
 import pandas as pd
 import numpy as np
+import sklearn
 from sklearn import linear_model
+from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
-from sklearn.datasets import load_boston
+#from sklearn.datasets import load_boston
 from sklearn.metrics import mean_squared_error
 
 # Load the dataset and print it
-boston = load_boston()
+boston = fetch_california_housing()
 # Create dataframes out of the dataset
 # data --> independent variables / x values
 # target --> dependent variable / y value
@@ -21,8 +23,7 @@ print(df_x.describe())
 reg = linear_model.LinearRegression()
 
 # Split the dataset into 67% training and 33% testing data
-x_train, x_test, y_train, y_test = train_test_split(
-    df_x, df_y, test_size=0.33, random_state=42)
+x_train, x_test, y_train, y_test = train_test_split(df_x, df_y, test_size=0.33, random_state=42)
 
 # Train the model with the training data
 reg.fit(x_train, y_train)
